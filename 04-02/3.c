@@ -23,13 +23,12 @@ void eliminar_vocales(char *cad){
   for (int i = 0; cad[i] != '\0' ; i++) {
     fprintf(stderr,"gg\n");
     if (cad[i] != 'a' && cad[i] != 'e' && cad[i] != 'i' && cad[i] != 'o' && cad[i] != 'u') {
-      fprintf(stderr,"gg\n");
-      cad[0]= 'C';
-      printf("%c\n",cad[j]);
+      printf("%c\n",cad[3]);
+      cad[j]= cad[i];
       fprintf(stderr,"gg\n");
       j++;
     }
   }
   fprintf(stderr,"gg\n");
-  cad[1] = '\0';
+  cad[j] = '\0';
 }
