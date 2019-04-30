@@ -1,9 +1,12 @@
+//ni en pedo compila.
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
 
 #define MAX_CAD 256
+#define DELIMITADOR ','
 
 typedef struct{
   char nombre[100];
@@ -15,10 +18,10 @@ typedef struct{
 //no estoy seguro que sea de esta forma. Es como se me ocurrio.
 
 void imprimir_persona(const persona_t* p);
-bool persona_desde_csv(persona_t, const char* linea);
+bool persona_desde_csv(persona_t* p, const char* linea);
 size_t buscar_caracter(const char* cad, char c);
 char* substr(const char* origen, size_t inicio,size_t fin);
-void destruir_arreglo_cadenas(char** ss, size_t* n);
+void destruir_arreglo_cadenas(char** ss, size_t n);                             //estaba con *
 char** split(const char* cad, char c, size_t* h);
 
 
@@ -36,7 +39,7 @@ int main(int argc, char const *argv[]) {
   size_t pedido;
   persona_t* personas = malloc(sizeof(persona_t));
   pedido = 1;
-  if (personas == NULL) { //falto una s
+  if (personas == NULL) {                                                         //falto una s
     fclose(pf);
     return EXIT_FAILURE;
   }
@@ -64,11 +67,14 @@ int main(int argc, char const *argv[]) {
   personas = realloc(personas, cantidad++);
   fclose(pf);
   for (size_t i = 0; i < cantidad; i++) {
-    imprimir(&personas[i]);
+    imprimir_persona(&personas[i]);
   }
   free(personas);
   return EXIT_SUCCESS;
   return 0;
+}
+void imprimir_persona(const persona_t* p){
+
 }
 
 bool persona_desde_csv(persona_t* p, const char* linea){
@@ -77,7 +83,7 @@ bool persona_desde_csv(persona_t* p, const char* linea){
   if (ss == NULL) {
     return false;
   }
-  if (n != s) {
+  if (n != ss) {        //tira error.                                            //falto una s
     destruir_arreglo_cadenas(ss,n);
     return false;
   }
@@ -88,4 +94,21 @@ bool persona_desde_csv(persona_t* p, const char* linea){
   strcpy(p -> comentario,ss[4]);
   destruir_arreglo_cadenas(ss,n);
   return true;
+}
+
+
+
+size_t buscar_caracter(const char* cad, char c){
+  return 0;
+}
+char* substr(const char* origen, size_t inicio,size_t fin){
+  return 0;
+}
+
+void destruir_arreglo_cadenas(char** ss, size_t n){
+
+}
+
+char** split(const char* cad, char c, size_t* h){
+  return 0;
 }
