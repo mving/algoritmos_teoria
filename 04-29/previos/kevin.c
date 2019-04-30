@@ -25,14 +25,12 @@ void destruir_arreglo_cadenas(char** ss, size_t n);                             
 char** split(const char* cad, char c, size_t* h);
 
 
-
-
-
 int main(int argc, char const *argv[]) {
   FILE *pf;
   char linea[MAX_CAD];
   if(argc!=0 || (pf = fopen(argv[1],"r")) == NULL){
-    fprintf(stderr, "No pudo abrirse");
+  //if(pf = fopen("alumnos.txt","r") == NULL){
+    fprintf(stderr, "No pudo abrirse\n");
     return EXIT_FAILURE;
   }
   size_t cantidad = 0;
@@ -59,7 +57,7 @@ int main(int argc, char const *argv[]) {
       linea[tam-1] = '\0';
     }
     if (!persona_desde_csv(&personas[cantidad],linea)) {
-      fprintf(stderr, "linea invalida");
+      fprintf(stderr, "linea invalida\n");
       continue;
     }
     cantidad++;
@@ -74,12 +72,12 @@ int main(int argc, char const *argv[]) {
   return 0;
 }
 void imprimir_persona(const persona_t* p){
-
+  printf("nombre: %s, dni: %d, padron: %d, nota: %f, comentarios: %s\n",p -> nombre, p -> dni, p -> padron, p -> nota, p -> comentario);
 }
 
 bool persona_desde_csv(persona_t* p, const char* linea){
   size_t n;
-  char **ss = split(linea,DELIMITADOR,&n);
+  char** ss = split(linea,DELIMITADOR,&n);
   if (ss == NULL) {
     return false;
   }
@@ -96,8 +94,6 @@ bool persona_desde_csv(persona_t* p, const char* linea){
   return true;
 }
 
-
-
 size_t buscar_caracter(const char* cad, char c){
   return 0;
 }
@@ -106,9 +102,16 @@ char* substr(const char* origen, size_t inicio,size_t fin){
 }
 
 void destruir_arreglo_cadenas(char** ss, size_t n){
-
+  for (size_t i = 0; i < n; i++) {
+    free(ss[i]);
+  }
+  free(ss);
 }
 
+//c es donde separa la cadena (,) h es el valor que guardo en la direccion
+// de memoria con el numero de columnas
 char** split(const char* cad, char c, size_t* h){
+//  char** spliteado;
+
   return 0;
 }
