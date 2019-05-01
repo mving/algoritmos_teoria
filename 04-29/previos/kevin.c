@@ -28,7 +28,7 @@ char** split(const char* cad, char c, size_t* h);
 int main(int argc, char const *argv[]) {
   FILE *pf;
   char linea[MAX_CAD];
-  if(argc!=0 || (pf = fopen(argv[1],"r")) == NULL){
+  if(argc==0 || (pf = fopen(argv[1],"r")) == NULL){
   //if(pf = fopen("alumnos.txt","r") == NULL){
     fprintf(stderr, "No pudo abrirse\n");
     return EXIT_FAILURE;
