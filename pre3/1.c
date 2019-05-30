@@ -40,7 +40,7 @@ polinomio_t *polinomio_crear(size_t n){
     if (polinomio == NULL)
         return NULL;
 
-    polinomio->coeficiente = calloc(n+1,sizeof(double*));
+    polinomio->coeficiente = calloc(n+1,sizeof(double));
     if (polinomio->coeficiente == NULL) {
         free(polinomio);
         return NULL;
