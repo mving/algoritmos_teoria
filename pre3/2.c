@@ -66,10 +66,10 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-/*
+
 bool leer_persona(FILE *f, persona_t *p){
 
-}*/
+}
 
 void escribir_persona(FILE *f, const persona_t *p){
     char output[MAX*2];
@@ -78,5 +78,5 @@ void escribir_persona(FILE *f, const persona_t *p){
 }
 
 bool leer_personas(const char *r, persona_t v[], size_t max, size_t*n){
-    
+
 }
