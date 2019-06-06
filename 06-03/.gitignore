@@ -10,6 +10,9 @@
 # Unignore Makefile
 !Makefile
 
+# Unignore input
+!input
+
 ### Above combination will ignore all files without extension ###
 
 # Ignore files with extension `.class` & `.sm`
