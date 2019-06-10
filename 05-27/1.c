@@ -3,7 +3,7 @@
 #include <time.h>
 #include "A1.h"
 
-#define TM 1000000
+#define TM 10
 
 void mergesort(int a[], int i, int j){
     int mid;
